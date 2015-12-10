@@ -57,7 +57,7 @@ module HasModerated
         else
           m = self.moderations.build
         end
-        m.data = args.first
+        m.data = args.first.to_json
         HasModerated::Common::call_creating_hook(self, m)
         # if self is a new_record? then let AR create the moderations
         # when self is saved

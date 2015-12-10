@@ -20,7 +20,7 @@ module HasModerated
     end
 
     def parsed_data
-      @parsed_data ||= YAML::load(data)
+      @parsed_data ||= YAML::load(data).deep_symbolize_keys
     end
 
     def apply(save_opts = Hash.new, preview_mode = false)
