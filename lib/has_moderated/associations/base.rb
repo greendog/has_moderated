@@ -27,7 +27,7 @@ module HasModerated
           end
 
           # process associations + lazy loading
-          assoc_names.map{ |name| self.reflections[name] }.each do |assoc|
+          assoc_names.map{ |name| self.reflections[name.to_s] }.each do |assoc|
             case assoc.macro
               when :has_many then
                 self.send :extend, HasModerated::Associations::Collection::ClassMethods
