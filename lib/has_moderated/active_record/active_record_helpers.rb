@@ -28,7 +28,7 @@ module HasModerated
       # todo
       through_assocs = {}
       from_record.class.reflections.keys.each do |assoc|
-        join_model = from_record.class.reflections[assoc.to_sym].options[:through]
+        join_model = from_record.class.reflections[assoc].options[:through]
         if join_model
           join_model = join_model.to_sym
           through_assocs[join_model] ||= []

@@ -145,7 +145,7 @@ module HasModerated
           delete_associations = data[:delete_associations]
 
           associations && associations.each_pair do |assoc_name, assoc_records|
-            reflection = record.class.reflections[assoc_name.to_sym]
+            reflection = record.class.reflections[assoc_name.to_s]
 
             assoc_records.each do |attrs|
               apply_add_association(record, reflection, attrs, save_opts) if attrs.present?
